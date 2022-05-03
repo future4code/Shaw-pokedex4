@@ -14,8 +14,9 @@ const CardFather = styled.div`
     
 `
 
-export default function CardPokemon() {
-   
+export default function CardPokemon(props) {
+
+   console.log(props)
    
 
   return (
