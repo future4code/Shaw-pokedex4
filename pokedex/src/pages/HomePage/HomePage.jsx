@@ -13,14 +13,13 @@ export default function HomePage() {
     const navigate = useNavigate()
     const [pokemonList, setpokemonList] = useState([])
 
-    console.log(pokemonList)
-
    const  getAllPokeName  =()=> {
   
     axios
     .get("https://pokeapi.co/api/v2/pokemon?offset=20&limit=20")
     .then((res)=>{
       setpokemonList(res.data.results)
+      console.log(res.data.results)
     })
     .catch((err)=>{
         alert("[ERRO]")
@@ -40,7 +39,7 @@ export default function HomePage() {
   return (
     <>
    <h1>HOME PAGE</h1>
-    <CardPokemon/>
+    {mapPokemons}
 
    <button onClick={() => goToDetails(navigate)}>Detalhes</button>
    <button onClick={() => goToPokedex(navigate)}>Pokedex</button>
