@@ -9,7 +9,7 @@ export default function Details() {
   return (
     <>
       <HeaderStyle>
-        <button>Voltar</button>
+        <button>Voltarx</button>
         <h1>Nome do pokemon</h1>
         <button>Adicionar/Remover da pokedex</button>
       </HeaderStyle>
