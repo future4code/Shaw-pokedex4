@@ -27,14 +27,36 @@ export default function CardPokemon(props) {
       });
   };
 
+
+export default function CardPokemon(props) {
+
+  const [pokemon, setPokemon] = useState({})
+
+  const getAllPokeCard = () => {
+
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${props.nome}`)
+      .then((res) => {
+        setPokemon(res.data)
+
+      })
+      .catch((err) => {
+        alert("[ERRO]")
+      })
+  };
+
   useEffect(() => {
-    getAllPokeCard();
+
+    getAllPokeCard()
+
   }, []);
+
 
   return (
     <center>
       <CardFather>
         <>
+
         <>
         <h1>{pokemon.name && (
               <>{pokemon.name.toUpperCase()}</>
@@ -50,6 +72,9 @@ export default function CardPokemon(props) {
           VER DETALHES
         </button>
       </CardFather>
+
+
+
     </center>
   );
 }

@@ -10,6 +10,7 @@ import Details from "../Details/Details";
 
 
 
+
 export default function HomePage() {
 
     const navigate = useNavigate()
@@ -35,6 +36,7 @@ export default function HomePage() {
    },[]);
 
    const mapPokemons = pokemonList && pokemonList.map((pokemon)=>{
+
     return <>
     <CardPokemon nome={pokemon.name}/>
     
@@ -47,13 +49,14 @@ export default function HomePage() {
     return <Details nome={pokemon.name}/>
 
     
+
    })
 
   return (
     <>
    <h1>HOME PAGE</h1>
     {mapPokemons}
-    
+
 
    <button onClick={() => goToDetails(navigate)}>Detalhes</button>
    <button onClick={() => goToPokedex(navigate)}>Pokedex</button>
