@@ -34,17 +34,20 @@ export default function CardPokemon(props) {
   return (
     <center>
       <CardFather>
-        <>
+        
         <>
         <h1>{pokemon.name && (
               <>{pokemon.name.toUpperCase()}</>
             )}</h1>
         </>
+
+        <>
           {pokemon.sprites && (
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
           )}
           ;
         </>
+        
         <button>REMOVER DA POKEDEX</button>
         <button onClick={() => goToDetails(navigate, pokemon.name)}>
           VER DETALHES
