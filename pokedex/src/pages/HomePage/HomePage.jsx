@@ -5,6 +5,8 @@ import { goToPokedex } from "../../routes/Coordinator";
 import { useNavigate} from "react-router-dom";
 import { goToDetails } from "../../routes/Coordinator";
 import CardPokemon from "../../components/CardPokemon";
+import Details from "../Details/Details";
+
 
 
 
@@ -33,13 +35,25 @@ export default function HomePage() {
    },[]);
 
    const mapPokemons = pokemonList && pokemonList.map((pokemon)=>{
-    return <CardPokemon nome={pokemon.name}/>
+    return <>
+    <CardPokemon nome={pokemon.name}/>
+    
+    </>
+
+    
+   })
+
+   const mapDetalhes = pokemonList && pokemonList.map((pokemon)=>{
+    return <Details nome={pokemon.name}/>
+
+    
    })
 
   return (
     <>
    <h1>HOME PAGE</h1>
     {mapPokemons}
+    
 
    <button onClick={() => goToDetails(navigate)}>Detalhes</button>
    <button onClick={() => goToPokedex(navigate)}>Pokedex</button>

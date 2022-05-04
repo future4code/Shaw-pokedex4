@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { HeaderStyle, CardBasic, MainTagStyle} from "./DetailsStyled";
-
-
+import { HeaderStyle, CardBasic, MainTagStyle } from "./DetailsStyled";
+import { goToBack } from "../../routes/Coordinator";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Details() {
+  const navigate = useNavigate();
+  const params = useParams()
+  const [pokemon, setPokemon] = useState({});
+  console.log(params);
+
+  const getAllPokeCard = () => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${params.name}`)
+      .then((res) => {
+        setPokemon(res.data);
+      })
+      .catch((err) => {
+        alert("[ERRO]");
+      });
+  };
+
+  useEffect(() => {
+    getAllPokeCard();
+  }, []);
+
   return (
     <>
       <HeaderStyle>
-        <button>Voltarx</button>
-        <h1>Nome do pokemon</h1>
+        <button onClick={() => goToBack(navigate)}>Voltarx</button>
+        <h1>{pokemon.name && (
+              <>{pokemon.name.toUpperCase()}</>
+            )}</h1>
         <button>Adicionar/Remover da pokedex</button>
       </HeaderStyle>
 
@@ -18,18 +40,24 @@ export default function Details() {
         <div>
           <CardBasic>
             <p>Imagem frontal</p>
-            <img src="https://img1.picmix.com/output/stamp/normal/0/9/0/4/1604090_a14a5.gif" />
+            {pokemon.sprites && (
+              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            )}
           </CardBasic>
 
           <CardBasic>
             <p>Imagem costas</p>
-            <img src="https://img1.picmix.com/output/stamp/normal/0/9/0/4/1604090_a14a5.gif" />
+            {pokemon.sprites && (
+              <img src={pokemon.sprites.back_default} alt={pokemon.name} />
+            )}
           </CardBasic>
         </div>
 
         <div>
           <h2>Stats</h2>
-          <h3>HP: 46</h3>
+          <h3>HP: {pokemon.hp && (
+              <>{pokemon.hp}</>
+            )}</h3>
           <h3>ATTACK: 39</h3>
           <h3>DEFENSE: 52</h3>
           <h3>SPECIAL-ATTACK: 43</h3>
