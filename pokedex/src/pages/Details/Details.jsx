@@ -29,24 +29,30 @@ export default function Details() {
   return (
     <>
       <HeaderStyle>
-        <button onClick={() => goToBack(navigate)}>Voltarx</button>
+        
         <h1>{pokemon.name && (
               <>{pokemon.name.toUpperCase()}</>
             )}</h1>
-        <button>Adicionar/Remover da pokedex</button>
+        
       </HeaderStyle>
+
+      <>
+      <button onClick={() => goToBack(navigate)}>Voltar</button>
+      <button>Adicionar/Remover</button>
+      
+      </>
 
       <MainTagStyle>
         <div>
           <CardBasic>
-            <p>Imagem frontal</p>
+          
             {pokemon.sprites && (
               <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             )}
           </CardBasic>
 
           <CardBasic>
-            <p>Imagem costas</p>
+            
             {pokemon.sprites && (
               <img src={pokemon.sprites.back_default} alt={pokemon.name} />
             )}
@@ -55,8 +61,8 @@ export default function Details() {
 
         <div>
           <h2>Stats</h2>
-          <h3>HP: {pokemon.hp && (
-              <>{pokemon.hp}</>
+          <h3>HP: {pokemon.HP && (
+              <>{pokemon.HP}</>
             )}</h3>
           <h3>ATTACK: 39</h3>
           <h3>DEFENSE: 52</h3>
