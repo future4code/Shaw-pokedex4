@@ -8,8 +8,20 @@ import CardPokemon from "../../components/CardPokemon";
 import Details from "../Details/Details";
 
 
+const HomeContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* gap: 12px; */
+  width: 100%;
+`
+const Cards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-around;
 
-
+`
 
 export default function HomePage() {
 
@@ -53,13 +65,16 @@ export default function HomePage() {
    })
 
   return (
-    <>
+    <HomeContainer>
    <h1>HOME PAGE</h1>
-    {mapPokemons}
+   <Cards>
+   {mapPokemons}
+   </Cards>
+    
 
 
    <button onClick={() => goToDetails(navigate)}>Detalhes</button>
    <button onClick={() => goToPokedex(navigate)}>Pokedex</button>
-    </>
+    </HomeContainer>
   );
 }
