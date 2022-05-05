@@ -7,7 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function Details() {
   const navigate = useNavigate();
-  const params = useParams()
+  const params = useParams();
   const [pokemon, setPokemon] = useState({});
   console.log(params);
 
@@ -29,30 +29,29 @@ export default function Details() {
   return (
     <>
       <HeaderStyle>
-        
-        <h1>{pokemon.name && (
-              <>{pokemon.name.toUpperCase()}</>
-            )}</h1>
-        
+        <h1>{pokemon.name && <>{pokemon.name.toUpperCase()}</>}</h1>
       </HeaderStyle>
 
       <>
-      <button onClick={() => goToBack(navigate)}>Voltar</button>
-      <button>Adicionar/Remover</button>
-      
+        <button onClick={() => goToBack(navigate)}>Voltar</button>
+        <button>Adicionar/Remover</button>
       </>
 
       <MainTagStyle>
         <div>
           <CardBasic>
-          
             {pokemon.sprites && (
-              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              <img
+                src={
+                  pokemon.sprites.versions["generation-v"]["black-white"]
+                    .animated.front_default
+                }
+                alt={pokemon.name}
+              />
             )}
           </CardBasic>
 
           <CardBasic>
-            
             {pokemon.sprites && (
               <img src={pokemon.sprites.back_default} alt={pokemon.name} />
             )}
@@ -61,9 +60,7 @@ export default function Details() {
 
         <div>
           <h2>Stats</h2>
-          <h3>HP: {pokemon.HP && (
-              <>{pokemon.HP}</>
-            )}</h3>
+          <h3>HP: </h3>
           <h3>ATTACK: 39</h3>
           <h3>DEFENSE: 52</h3>
           <h3>SPECIAL-ATTACK: 43</h3>
@@ -73,8 +70,13 @@ export default function Details() {
 
         <div>
           <div>
-            <h2>Type 1</h2>
-            <h2>Type 2</h2>
+            <h2>
+              {" "}
+              Type 1: {pokemon.types && <h2>{pokemon.types[0].type.name}</>}
+            </h2>
+            <h2>
+              Type 2: {pokemon.types && <h2>{pokemon.types[1].type.name}</>}
+            </h2>
           </div>
 
           <div>
