@@ -4,12 +4,19 @@ import styled from "styled-components";
 import { goToDetails } from "../routes/Coordinator";
 import { useNavigate } from "react-router-dom";
 
+
+const CardContainer = styled.div`
+  width: 250px;
+ 
+`
 const CardFather = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
-  width: 40vh;
-  align-items: center;
+  background: radial-gradient(circle at 50% 0%, orange 36%, #ffffff 36%);
+  width: 100%;
+  padding: 20px 15px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+  
 `;
 
 export default function CardPokemon(props) {
@@ -32,7 +39,7 @@ export default function CardPokemon(props) {
   }, []);
 
   return (
-    <center>
+    <CardContainer>
       <CardFather>
         
         <>
@@ -45,7 +52,7 @@ export default function CardPokemon(props) {
           {pokemon.sprites && (
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
           )}
-          ;
+          
         </>
         
         <button>REMOVER DA POKEDEX</button>
@@ -53,6 +60,6 @@ export default function CardPokemon(props) {
           VER DETALHES
         </button>
       </CardFather>
-    </center>
+    </CardContainer>
   );
 }
