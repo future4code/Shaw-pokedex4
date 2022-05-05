@@ -25,16 +25,22 @@ const Cards = styled.div`
 `
 
 
-export default function HomePage() {
+
+
+
+
+
+export default function HomePage(props) {
   const navigate = useNavigate();
   const [pokemonList, setpokemonList] = useState([]);
+ 
 
   const getAllPokeName = () => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon?offset=20&limit=20")
       .then((res) => {
         setpokemonList(res.data.results);
-        console.log(res.data.results);
+
       })
       .catch((err) => {
         alert("[ERRO]");
@@ -50,7 +56,7 @@ export default function HomePage() {
     pokemonList.map((pokemon) => {
       return (
         <>
-          <CardPokemon nome={pokemon.name} />
+          <CardPokemon addPokedex={props.addPokedex} nome={pokemon.name} />
         </>
       );
     });
@@ -64,15 +70,12 @@ export default function HomePage() {
   return (
 
     <HomeContainer>
-   <h1>HOME PAGE</h1>
-   <Cards>
-   {mapPokemons}
-   </Cards>
-    
-
-
-   <button onClick={() => goToDetails(navigate)}>Detalhes</button>
-   <button onClick={() => goToPokedex(navigate)}>Pokedex</button>
+      <h1>HOME PAGE</h1>
+      <Cards>
+        {mapPokemons}
+      </Cards>
+      <button onClick={() => goToDetails(navigate)}>Detalhes</button>
+      <button onClick={() => goToPokedex(navigate)}>Pokedex</button>
     </HomeContainer>
 
   );

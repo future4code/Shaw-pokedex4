@@ -55,7 +55,7 @@ export default function CardPokemon(props) {
           
         </>
         
-        <button>REMOVER DA POKEDEX</button>
+        <button onClick={()=> props.addPokedex(pokemon.name)}>Adicionar Pokemon</button>
         <button onClick={() => goToDetails(navigate, pokemon.name)}>
           VER DETALHES
         </button>
