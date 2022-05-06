@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Pessoa 2
 - Pessoa 3
 
-Link do Surge: www.link.com.br
+Link do Surge: https://outgoing-nest.surge.sh
 
 O que funciona:
 - Item 1
