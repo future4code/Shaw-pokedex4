@@ -69,7 +69,7 @@ export default function Details() {
         <div>
           <h2>Stats</h2>
           <h3>HP: {pokemon.stats && <>{pokemon.stats[0].base_stat}</>} </h3>
-          <h3>ATTACK: {pokemon.stats && <>{pokemon.stats[1].base_stat}</>}9</h3>
+          <h3>ATTACK: {pokemon.stats && <>{pokemon.stats[1].base_stat}</>}</h3>
           <h3>DEFENSE: {pokemon.stats && <>{pokemon.stats[2].base_stat}</>}</h3>
           <h3>
             SPECIAL-ATTACK:{pokemon.stats && <>{pokemon.stats[3].base_stat}</>}

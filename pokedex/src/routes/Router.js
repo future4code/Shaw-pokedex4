@@ -15,6 +15,7 @@ export const Router = () => {
   const addPokedex = (pokemon) => {
     const newArrayPokedex = [...pokemonsInPokedex, pokemon]
     setPokemonsInPokedex(newArrayPokedex)
+    alert('Você adicionou este Pokemón a sua Pokedex')
     
   };
 

@@ -20,7 +20,7 @@ const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  justify-content: space-around;
+  justify-content: space-between;
 
 `
 
