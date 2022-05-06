@@ -16,6 +16,61 @@ const HomeContainer = styled.div`
   /* gap: 12px; */
   width: 100%;
 `
+
+// ----------------------------------------------------------------------
+
+
+
+const Cabecalho = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 12vh;
+  width: 100%;
+  flex-wrap: wrap;
+  background: white;
+  margin-top: 0px;
+`;
+const Titulo = styled.div`
+  display: flex;
+  margin-left: 36px;
+  color: white;
+  font-size: 16px;
+  align-items: center;
+  span {
+    /* font-size: 16px; */
+    color: black;
+  }
+`;
+
+const Nav = styled.div`
+  margin-right: 36px;
+  button {
+    margin: 16px;
+    color: #161616;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 2px 16px;
+    /* border: #fff; */
+    border-radius: 6px;
+    border: none;
+    /* background: ; */
+    width: auto;
+    height: 32px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #7869bf;
+    color: white;
+    border: none;
+    transform: scale(1.05);
+  }
+`;
+
+// ------------------------------------------------------------------------
+
+
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -70,12 +125,25 @@ export default function HomePage(props) {
   return (
 
     <HomeContainer>
-      <h1>HOME PAGE</h1>
+       <Cabecalho>
+        <Titulo>
+          <h1>
+            Labe
+            <span>
+            Pokémons
+            </span>
+          </h1>
+        </Titulo>
+        <Nav>
+        <button onClick={() => goToPokedex(navigate)}>Pokedex</button>
+        </Nav>
+       
+      </Cabecalho>
       <Cards>
         {mapPokemons}
       </Cards>
-      <button onClick={() => goToDetails(navigate)}>Detalhes</button>
-      <button onClick={() => goToPokedex(navigate)}>Pokedex</button>
+      {/* <button onClick={() => goToDetails(navigate)}>Detalhes</button> */}
+      {/* <button onClick={() => goToPokedex(navigate)}>Pokedex</button> */}
     </HomeContainer>
 
   );
