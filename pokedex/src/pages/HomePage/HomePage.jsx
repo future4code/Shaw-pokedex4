@@ -92,7 +92,7 @@ export default function HomePage(props) {
 
   const getAllPokeName = () => {
     axios
-      .get("https://pokeapi.co/api/v2/pokemon?offset=20&limit=20")
+      .get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=28")
       .then((res) => {
         setpokemonList(res.data.results);
 
