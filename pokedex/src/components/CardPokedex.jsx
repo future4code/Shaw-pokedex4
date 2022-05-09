@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import styled from "styled-components";
-import { goToDetails } from "../routes/Coordinator";
-import { useNavigate } from "react-router-dom";
+import styled from "styled-components"
+import {useParams} from "react-router-dom"
+import { goToDetails } from "../routes/Coordinator"
+import { useNavigate } from "react-router-dom"
+import useRequestData from "../Hooks/useRequestData"
+
 
 
 const CardContainer = styled.div`
@@ -21,7 +22,7 @@ const CardFather = styled.div`
   padding: 20px 15px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  
+  margin: 12px;
   transition: 200ms;
   
   
@@ -88,55 +89,44 @@ const Botoes = styled.div`
  
 `
 
-export default function CardPokemon(props) {
-  const [pokemon, setPokemon] = useState({});
-  const navigate = useNavigate();
+function CardPokedex(props) {
+const navigate = useNavigate()
 
-  const getAllPokeCard = () => {
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${props.nome}`)
-      .then((res) => {
-        setPokemon(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        alert("[ERRO]");
-      });
-  };
+const detalhesPokemon = useRequestData(`https://pokeapi.co/api/v2/pokemon/${props.pokemon}`,{})
+  
 
-  useEffect(() => {
-    getAllPokeCard();
-  }, []);
 
-  return (
-    <CardContainer>
+    return (
+
+      <CardContainer>
       <CardFather>
         <>
-          <h4>HP: {pokemon.stats && <>{pokemon.stats[0].base_stat}</>} </h4>
+          <h4>HP: {detalhesPokemon.stats && <>{detalhesPokemon.stats[0].base_stat}</>} </h4>
         </>
         <Imagem>
-          {pokemon.sprites && (
-            <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
+          {detalhesPokemon.sprites && (
+            <img src={detalhesPokemon.sprites.other.dream_world.front_default} alt={detalhesPokemon.name} />
           )}
           
         </Imagem>
 
         <>
-        <h3>{pokemon.name && (
-              <>{pokemon.name.toUpperCase()}</>
+        <h3>{detalhesPokemon.name && (
+              <>{detalhesPokemon.name.toUpperCase()}</>
             )}</h3>
         </>
         <Stats>
-          <p>ATTACK: <span>{pokemon.stats && <>{pokemon.stats[1].base_stat}</>}</span></p>
-          <p>DEFENSE: <span>{pokemon.stats && <>{pokemon.stats[2].base_stat}</>}</span></p>
+          <p>ATTACK: <span>{detalhesPokemon.stats && <>{detalhesPokemon.stats[1].base_stat}</>}</span></p>
+          <p>DEFENSE: <span>{detalhesPokemon.stats && <>{detalhesPokemon.stats[2].base_stat}</>}</span></p>
         </Stats>
         <Botoes>
-        <button onClick={()=> props.addPokedex(pokemon.name)}>ADICIONAR POKEMON</button>
-        <button onClick={() => goToDetails(navigate, pokemon.name)}>
+        <button onClick={()=>props.removeFromPokedex(props.pokemon)}>REMOVER POKÉMON</button>
+        <button onClick={() => goToDetails(navigate, props.pokemon)}>
           VER DETALHES
         </button>
         </Botoes>
       </CardFather>
     </CardContainer>
-  );
-}
+      );
+  }
+  export default CardPokedex

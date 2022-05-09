@@ -7,10 +7,6 @@ import {Router} from "./routes/Router"
 function App() {
   return (
     <>
-      {/* <header>
-        <Header />
-      </header> */}
-
       <main>
       <Router/>
       </main>

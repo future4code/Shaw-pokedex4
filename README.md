@@ -1,16 +1,22 @@
 # POKEDEX
 
-Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+Nome dos integrantes do grupo: 
+- Pablo Gomes
+- Rodrigo Vieira
+- Sérvulo Silva
 
-Link do Surge: www.link.com.br
+Link do Surge: http://pokedex.labenu-projeto.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Ver pokemons
+- Adicionar pokemons á pokedex
+- Remover Pokemons da Pokedex
+- Ver detalhes de cada pokemon
 
 O que não funciona: 
-- Item 3
-- Item 4
+- O pokemon sumir da página principal após ser adicionado a pokedex
+
+
+![image](https://user-images.githubusercontent.com/99182794/167324464-62acc1a8-6c86-4d77-ba03-78879a88608e.png)
+![image](https://user-images.githubusercontent.com/99182794/167324488-65546262-430c-405e-83ee-bf8ee2b27163.png)
+![image](https://user-images.githubusercontent.com/99182794/167324521-37906fd6-54a4-460d-8025-323fe5d06ff1.png)
