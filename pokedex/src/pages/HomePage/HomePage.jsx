@@ -37,6 +37,7 @@ const Titulo = styled.div`
   color: white;
   font-size: 16px;
   align-items: center;
+  font-style: italic;
   span {
     /* font-size: 16px; */
     color: black;
@@ -44,7 +45,7 @@ const Titulo = styled.div`
 `;
 
 const Nav = styled.div`
-  margin-right: 36px;
+  /* margin-right: 36px; */
   button {
     margin: 16px;
     color: #161616;
@@ -57,11 +58,11 @@ const Nav = styled.div`
     /* background: ; */
     width: auto;
     height: 32px;
-    transition: all 0.3s;
+    transition: all 0.2s;
     cursor: pointer;
   }
   button:hover {
-    background: #7869bf;
+    background-image: linear-gradient(135deg, #051f40, #2c0d2f, #3b0326);
     color: white;
     border: none;
     transform: scale(1.05);
@@ -128,9 +129,8 @@ export default function HomePage(props) {
        <Cabecalho>
         <Titulo>
           <h1>
-            Labe
             <span>
-            Pokémons
+            POKÉMONS
             </span>
           </h1>
         </Titulo>

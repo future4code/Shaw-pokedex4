@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { HeaderStyle, CardBasic, MainTagStyle } from "./DetailsStyled";
+import { ContainerDetalhes, HeaderStyle, CardBasic, Stats, MainTagStyle } from "./DetailsStyled";
 import { goToBack } from "../../routes/Coordinator";
 import { useNavigate, useParams } from "react-router-dom";
+
+
+
+
+
+
+
+
 
 export default function Details() {
   const navigate = useNavigate();
@@ -29,15 +37,11 @@ export default function Details() {
   }, []);
 
   return (
-    <center>
+    <ContainerDetalhes>
       <HeaderStyle>
         <h1>{pokemon.name && <>{pokemon.name.toUpperCase()}</>}</h1>
-      </HeaderStyle>
-
-      <>
         <button onClick={() => goToBack(navigate)}>Voltar</button>
-        <button>Adicionar/Remover</button>
-      </>
+      </HeaderStyle>
 
       <MainTagStyle>
         <div>
@@ -66,8 +70,8 @@ export default function Details() {
           </CardBasic>
         </div>
 
-        <div>
-          <h2>Stats</h2>
+        <Stats>
+          <h2>STATS</h2>
           <h3>HP: {pokemon.stats && <>{pokemon.stats[0].base_stat}</>} </h3>
           <h3>ATTACK: {pokemon.stats && <>{pokemon.stats[1].base_stat}</>}</h3>
           <h3>DEFENSE: {pokemon.stats && <>{pokemon.stats[2].base_stat}</>}</h3>
@@ -79,27 +83,27 @@ export default function Details() {
             {pokemon.stats && <>{pokemon.stats[4].base_stat}</>}
           </h3>
           <h3>SPEED: {pokemon.stats && <>{pokemon.stats[5].base_stat}</>}</h3>
-        </div>
+        </Stats>
 
-        <div>
+        <Stats>
           <div>
-            <h2>
+            <h3>
               {" "}
               Type 1: {pokemon.types && <>{pokemon.types[0].type.name}</>}
-            </h2>
-            <h2>
-             Type 2:{ pokemon.types && ( pokemon.types.length>1? <>{pokemon.types[1].type.name}</> :" null ")}
-            </h2>
+            </h3>
+            <h3>
+             Type 2: { pokemon.types && ( pokemon.types.length>1? <>{pokemon.types[1].type.name}</> :" null ")}
+            </h3>
           </div>
-
+          <br/>
           <div>
             <h2>MOVES</h2>
             <h3>{pokemon.moves && <>{pokemon.moves[0].move.name}</>}</h3>
             <h3>{pokemon.moves && <>{pokemon.moves[1].move.name}</>}</h3>
             <h3>{pokemon.moves && <>{pokemon.moves[2].move.name}</>}</h3>
           </div>
-        </div>
+        </Stats>
       </MainTagStyle>
-    </center>
+    </ContainerDetalhes>
   );
 }
