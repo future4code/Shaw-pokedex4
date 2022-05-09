@@ -1,16 +1,17 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Pablo Gomes
+- Rodrigo Vieira
+- Sérvulo Silva
 
-Link do Surge: https://outgoing-nest.surge.sh
+Link do Surge: http://pokedex.labenu-projeto.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Ver pokemons
+- Adicionar pokemons á pokedex
+- Remover Pokemons da Pokedex
+- Ver detalhes de cada pokemon
 
 O que não funciona: 
-- Item 3
-- Item 4
+- O pokemon sumir da página principal após ser adicionado a pokedex
