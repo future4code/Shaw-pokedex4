@@ -1,6 +1,6 @@
 # POKEDEX
 
-Nome dos integrantes: 
+Nome dos integrantes do grupo: 
 - Pablo Gomes
 - Rodrigo Vieira
 - Sérvulo Silva
